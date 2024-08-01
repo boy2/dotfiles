@@ -56,9 +56,9 @@ source "/usr/local/opt/zsh-git-prompt/zshrc.sh"
 
 # 補完機能を有効にする
 if type brew &>/dev/null; then
-  fpath=(/usr/local/share/zsh-completions $fpath)
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  autoload -Uz compinit && compinit -u 
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
 fi
 
 ## 補完で小文字でも大文字にマッチさせる
